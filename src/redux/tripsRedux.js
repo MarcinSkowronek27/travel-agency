@@ -30,9 +30,9 @@ export const getTripById = ({trips}, tripId) => {
 };
 
 export const getTripsForCountry = ({trips}, countryCode) => {
-  const filtered = trips;
+  const filtered = trips.filter(trips => trips.country.code == countryCode);
 
-  // TODO - filter trips by countryCode
+  // DONE - filter trips by countryCode
 
   console.log('filtering trips by countryCode:', countryCode, filtered);
   return filtered.length ? filtered : [{error: true}];
