@@ -20,6 +20,17 @@ export const getFilteredTrips = ({ trips, filters }) => {
   }
 
   // TODO - sort by cost descending (most expensive goes first)
+  let highestPrice = trips[0].cost;
+  let lowestPrice = trips[0].cost;
+  let sum = 0;
+  for(const tripPrice in trips) {
+    const tripsPrice = trips[tripPrice].cost;
+    console.log(tripsPrice);
+    sum += parseFloat(tripsPrice.replace(/$/, ''));
+    if(tripsPrice > highestPrice) highestPrice = tripsPrice;
+    if(tripsPrice < lowestPrice) lowestPrice = tripsPrice;
+  }
+  console.log(sum);
 
   return output;
 };
