@@ -17,7 +17,7 @@ export const getFilteredTrips = ({ trips, filters }) => {
   if(filters.tags.length > -1){
     for (let tag of filters.tags){
       output = output.filter(trip => trip.tags.indexOf(tag) > -1);
-      //console.log(output);
+      // console.log(filters.tags.length);
     }
   }
 
