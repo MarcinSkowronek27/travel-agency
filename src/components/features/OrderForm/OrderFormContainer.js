@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setOrderOption: option => dispatch(setOrderOption(option)),
-  // przeanalizować powyższą ścieżkę - o co kamaniks
+  // przeanalizować powyższą ścieżkę - dlaczego tu ma być option?
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderForm);
