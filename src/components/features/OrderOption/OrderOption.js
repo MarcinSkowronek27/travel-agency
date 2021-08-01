@@ -1,15 +1,33 @@
 import React from 'react';
 import styles from './OrderOption.scss';
-// import PropTypes from 'prop-types';
-// import { Grid, Row, Col } from 'react-flexbox-grid';
+import OrderOptionCheckboxes from './OrderOptionCheckboxes';
+import OrderOptionDropdown from './OrderOptionDropdown';
+import OrderOptionIcons from './OrderOptionIcons';
+import OrderOptionNumber from './OrderOptionNumber';
 
-const OrderOption = () => (
-  <div className={styles.component}>
-    <h3 className={styles.title}>{'Car Rental'}</h3>
-  </div>
-);
+const optionTypes = {
+  dropdown: OrderOptionDropdown,
+  icons: OrderOptionIcons,
+  checkboxes: OrderOptionCheckboxes,
+  number: OrderOptionNumber,
+};
 
-// OrderOption.propTypes = {
-// };
+const OrderOption = ({name, type, ...otherProps}) => {
+  const OptionComponent = optionTypes[type];
+  console.log(optionTypes[type], otherProps, name, type);
+  if(!OptionComponent){
+    return null;
+  } else {
+    return (
+      <div className={styles.component}>
+        <h3 className={styles.title}>{name}</h3>
+        <OptionComponent
+          {...otherProps}
+        />
+      </div>
+    );
+  }
+};
 
+// TODONT dlaczego tutaj nie deklarujemy PropTypes?
 export default OrderOption;
