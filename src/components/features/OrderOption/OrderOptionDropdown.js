@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './OrderOption.scss';
 import { formatPrice } from '../../../utils/formatPrice';
 import PropTypes from 'prop-types';
-// import { Grid, Row, Col } from 'react-flexbox-grid';
 
 const OrderOptionDropdown = ({ values, required, currentValue, setOptionValue }) => (
   <select
