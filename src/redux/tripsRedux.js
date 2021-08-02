@@ -12,9 +12,14 @@ export const getFilteredTrips = ({ trips, filters }) => {
   }
 
   // DONE - filter by duration
-  output = output.filter(trip => (trip.days <= filters.duration.to && trip.days >= filters.duration.from));
+  if (filters.duration) {
+    output = output.filter(trip => (trip.days <= filters.duration.to && trip.days >= filters.duration.from));
+  }
   // DONE - filter by tags
-  output = output.filter(trip => filters.tags.every(tag => trip.tags.includes(tag)));
+  if (filters.tags) {
+    output = output.filter(trip => filters.tags.every(tag => trip.tags.includes(tag)));
+  }
+
   // if(filters.tags.length > -1){
   //   for (let tag of filters.tags){
   //     output = output.filter(trip => trip.tags.indexOf(tag) > -1);
