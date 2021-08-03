@@ -8,13 +8,13 @@ class TripListOptions extends React.Component {
   handleTags(tag, checked) {
     if (checked) {
       // console.log('Adding tag', tag);
-      this.props.addTag(tag, checked);
+      this.props.addTag(tag);
       // dlaczego tu musi być też checked?
       // TODONT - use action dispatcher from props
     } else {
       // console.log('Removing tag', tag);
       // TODONT - use action dispatcher from props
-      this.props.removeTag(tag, checked);
+      this.props.removeTag(tag);
       // dlaczego tu musi być też checked?
     }
   }
@@ -22,7 +22,7 @@ class TripListOptions extends React.Component {
   handleDuration(type, value) {
     // console.log('Changing duration', type, value);
     // TODONT - use action dispatcher from props
-    this.props.changeDuration({ [type]: value });
+    this.props.changeDuration(type, value);
     // spróbować jeszcze z tym, co ma być w
   }
 

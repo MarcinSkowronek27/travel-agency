@@ -20,7 +20,7 @@ export const getFilteredTrips = ({ trips, filters }) => {
     output = output.filter(trip => filters.tags.every(tag => trip.tags.includes(tag)));
   }
 
-  // if(filters.tags.length > -1){
+  // if(filters.tags.length){
   //   for (let tag of filters.tags){
   //     output = output.filter(trip => trip.tags.indexOf(tag) > -1);
   //     // console.log(filters.tags.length);

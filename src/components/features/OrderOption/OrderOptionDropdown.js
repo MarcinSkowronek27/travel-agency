@@ -26,5 +26,5 @@ OrderOptionDropdown.propTypes = {
 };
 
 
-// TODONT jak sprawdzić, jakie typy mają być tutaj w propTypes?
+// TODONT jak sprawdzić, jakie typy mają być tutaj w propTypes? OK
 export default OrderOptionDropdown;

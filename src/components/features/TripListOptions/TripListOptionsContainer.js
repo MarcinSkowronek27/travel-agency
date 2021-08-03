@@ -10,8 +10,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   changeSearchPhrase: phrase => dispatch(changeSearchPhrase(phrase)),
-  addTag: checked => dispatch(addTag(checked)),
-  removeTag: checked => dispatch(removeTag(checked)),
+  addTag: tag => dispatch(addTag(tag)),
+  removeTag: tag => dispatch(removeTag(tag)),
   changeDuration: (type,value) => dispatch(changeDuration(type, value)),
   // TODONT - add more dispatchers for other filters
   // dlaczego tutaj nie ma dwóch argumentów funkcji dla addTag i removeTag?
