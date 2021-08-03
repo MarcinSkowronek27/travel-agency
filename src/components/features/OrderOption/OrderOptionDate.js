@@ -4,7 +4,7 @@ import styles from './OrderOption.scss';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import PropTypes from 'prop-types';
 
-const OrderOptionDate = ({setOptionValue}) => {
+const OrderOptionDate = ({ setOptionValue }) => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <div className={styles.component}>
@@ -13,7 +13,10 @@ const OrderOptionDate = ({setOptionValue}) => {
         selected={startDate}
         dateFormat="yyyy/MM/dd"
         placeholderText="Click to select a date"
-        onChange={date => setStartDate(setOptionValue(date))}
+        onChange={date => {
+          setStartDate(date);
+          setOptionValue(date);
+        }}
         isClearable={true} />
     </div>
   );
