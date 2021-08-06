@@ -54,6 +54,13 @@ describe('Component TripSummary', () => {
     expect(component.find('.tag').at(0).text()).toEqual(expectedArray[0]);
     expect(component.find('.tag').at(1).text()).toEqual(expectedArray[1]);
     expect(component.find('.tag').at(2).text()).toEqual(expectedArray[2]);
+
+  });
+
+  it('should not render tags if tags is not exist', () => {
+    const component = shallow(<TripSummary />);
+
+    expect(component.find('.tags').exists()).toEqual(false);
     console.log(component.debug());
   });
 });
