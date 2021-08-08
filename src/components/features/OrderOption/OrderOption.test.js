@@ -137,12 +137,26 @@ for (let type in optionTypes) {
           // renderedSubcomponent.find('div').find('.icon').childAt(3).simulate('click'); //dlaczego znajduje tu dwa elementy? Method “childAt” is meant to be run on 1 node. 2 found instead.
           renderedSubcomponent.find('div').find('.icon').last().simulate('click'); //działa
           expect(mockSetOrderOption).toBeCalledTimes(1);
-          // expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
         });
         break;
       }
       case 'checkboxes': {
+        it('contains div and inputs with type="checkbox"', () => {
+          const checkDiv = renderedSubcomponent.find('.checkboxes');
+          expect(checkDiv.length).toBe(1);
 
+          const inputs = checkDiv.find('input[type="checkbox"]');
+          expect(inputs.length).toBe(mockProps.values.length);
+          expect(inputs.at(0).prop('value')).toBe(mockProps.values[0].id);
+          expect(inputs.at(1).prop('value')).toBe(mockProps.values[1].id);
+        });
+
+        // it('should run setOrderOption function on change', () => {
+        //   renderedSubcomponent.find('select').simulate('change', { currentTarget: { value: testValue } });
+        //   expect(mockSetOrderOption).toBeCalledTimes(1);
+        //   expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+        // });
         break;
       }
       case 'number': {
