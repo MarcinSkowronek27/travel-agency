@@ -118,7 +118,7 @@ for (let type in optionTypes) {
         break;
       }
       case 'icons': {
-        it('should render dives with Icon class', ()=> {
+        it('should render dives with Icon class', () => {
           const iconDiv = renderedSubcomponent.find('div').not('[value=""]');
           expect(iconDiv.length).toBe(3);
           console.log(subcomponent.debug());
@@ -152,11 +152,11 @@ for (let type in optionTypes) {
           expect(inputs.at(1).prop('value')).toBe(mockProps.values[1].id);
         });
 
-        // it('should run setOrderOption function on change', () => {
-        //   renderedSubcomponent.find('select').simulate('change', { currentTarget: { value: testValue } });
-        //   expect(mockSetOrderOption).toBeCalledTimes(1);
-        //   expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
-        // });
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find(`input[value='${testValue}']`).simulate('change', { currentTarget: { checked: true } });
+          //   expect(mockSetOrderOption).toBeCalledTimes(1);
+          //   expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+        });
         break;
       }
       case 'number': {
