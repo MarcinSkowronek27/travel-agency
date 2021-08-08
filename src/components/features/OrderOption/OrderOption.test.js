@@ -63,7 +63,7 @@ const mockPropsForType = {
 };
 
 const testValue = mockProps.values[1].id;
-// const testValueNumber = 3;
+const testValueNumber = 3;
 for (let type in optionTypes) {
   describe(`Component OrderOption with type=${type}`, () => {
     /* test setup */
@@ -161,7 +161,22 @@ for (let type in optionTypes) {
         break;
       }
       case 'number': {
+        it('contains div and inputs', () => {
+          const numberDiv = renderedSubcomponent.find('.number');
+          expect(numberDiv.length).toBe(1);
+          const inputsNumber = numberDiv.find('input[type="number"]');
+          expect(inputsNumber.length).toBe(1); // dlaczego tutaj raz porównujemy do wartości a raz do mockProps.values.length
 
+          expect(inputsNumber.prop('value')).toBe(mockPropsForType.number.currentValue);
+          expect(inputsNumber.prop('min')).toBe(mockProps.limits.min);
+          expect(inputsNumber.prop('max')).toBe(mockProps.limits.max);
+        });
+
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find('input').simulate('change', { currentTarget: { value: testValueNumber } });
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValueNumber });
+        });
         break;
       }
       case 'text': {
