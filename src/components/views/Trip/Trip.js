@@ -16,7 +16,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import OrderForm from '../../features/OrderForm/OrderFormContainer';
 
 const Trip = ({ error, name, image, cost, days, description, country, intro, id }) => {
-  console.log(id);
+  // console.log(country.population);
   if (error) return <NotFound />;
   else return (
     <Section>
@@ -72,7 +72,7 @@ const Trip = ({ error, name, image, cost, days, description, country, intro, id 
         <Row>
           <Col xs={12}>
             <PageTitle text='Trip options' />
-            <OrderForm tripCost={cost} dupa={id}/>
+            <OrderForm tripCost={cost} tripId={id} tripName={name} countryCode={country.alpha3Code}/>
           </Col>
         </Row>
       </Grid>

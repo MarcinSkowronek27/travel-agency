@@ -233,6 +233,74 @@
       "totalCost": "$29,319",
       "tripId": "5cc1d10181a30e85c8d9ad4a",
       "id": 17
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "2021-08-18T14:36:55.000Z",
+      "totalCost": "$29,319",
+      "id": 18
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$29,319",
+      "tripId": "5cc1d10181a30e85c8d9ad4a",
+      "id": 19
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "2021-08-19T14:39:42.000Z",
+      "totalCost": "$29,319",
+      "tripId": "5cc1d10181a30e85c8d9ad4a",
+      "tripName": "Pleasant trek in outstanding Togo",
+      "id": 20
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$33,417",
+      "tripId": "5cc1d1015f3c5f5f14384b15",
+      "tripName": "Wondrous travel in excellent United States of America",
+      "id": 21
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$33,417",
+      "tripId": "5cc1d1015f3c5f5f14384b15",
+      "tripName": "Wondrous travel in excellent United States of America",
+      "countryCode": "USA",
+      "id": 22
     }
   ]
 }
