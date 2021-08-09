@@ -21,7 +21,7 @@ const sendOrder = (options, tripCost, tripId, tripName, countryCode) => {
     countryCode,
   };
 
-  // console.log(options);
+  // console.log(payload);
   if (options.name === '' || options.contact === '') {
     alert('Please enter your contact data');
     return; //co daje tu return?

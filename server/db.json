@@ -440,6 +440,36 @@
       "tripName": "Wondrous travel in excellent United States of America",
       "countryCode": "USA",
       "id": 31
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "yrt",
+      "contact": "hgfdh",
+      "start-date": "",
+      "totalCost": "$33,417",
+      "tripId": "5cc1d1015f3c5f5f14384b15",
+      "tripName": "Wondrous travel in excellent United States of America",
+      "countryCode": "USA",
+      "id": 32
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": "1",
+      "name": "tyrtyr",
+      "contact": "bvn",
+      "start-date": "2021-08-20T15:14:12.000Z",
+      "totalCost": "$50,126",
+      "tripId": "5cc1d1015f3c5f5f14384b15",
+      "tripName": "Wondrous travel in excellent United States of America",
+      "countryCode": "USA",
+      "id": 33
     }
   ]
 }
