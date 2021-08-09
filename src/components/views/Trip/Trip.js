@@ -16,7 +16,6 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import OrderForm from '../../features/OrderForm/OrderFormContainer';
 
 const Trip = ({ error, name, image, cost, days, description, country, intro, id }) => {
-  // console.log(country.population);
   if (error) return <NotFound />;
   else return (
     <Section>

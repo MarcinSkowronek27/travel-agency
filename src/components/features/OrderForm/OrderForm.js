@@ -21,6 +21,12 @@ const sendOrder = (options, tripCost, tripId, tripName, countryCode) => {
     countryCode,
   };
 
+  // console.log(options);
+  if (options.name === '' || options.contact === '') {
+    alert('Please enter your contact data');
+    return; //co daje tu return?
+  }
+
   const url = settings.db.url + '/' + settings.db.endpoint.orders;
 
   const fetchOptions = {
@@ -40,7 +46,9 @@ const sendOrder = (options, tripCost, tripId, tripName, countryCode) => {
     });
 };
 
-const OrderForm = ({ tripCost, options, setOrderOption, tripId, tripName, countryCode}) => (
+
+
+const OrderForm = ({ tripCost, options, setOrderOption, tripId, tripName, countryCode }) => (
   <Grid>
     <Row>
       {pricing.map(option => (
