@@ -9,6 +9,11 @@ describe('Component HappyHourAd', () => {
     promoDescription: '.promoDescription',
   };
 
+  const mockProps = {
+    title: 'title',
+    promoDescription: 'decription',
+  };
+
   it('should render without crashing', () => {
     const component = shallow(<HappyHourAd />);
     expect(component).toBeTruthy();
@@ -27,8 +32,8 @@ describe('Component HappyHourAd', () => {
   });
 
   it('should have props title', ()=>{
-    const expectedTitle = 'new title';
-    const component = shallow(<HappyHourAd title={expectedTitle}/>);
+    const expectedTitle = 'title';
+    const component = shallow(<HappyHourAd {...mockProps}/>);
 
     expect(component.find('.title').text()).toEqual(expectedTitle);
   });
