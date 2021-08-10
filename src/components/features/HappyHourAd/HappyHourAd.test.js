@@ -25,5 +25,12 @@ describe('Component HappyHourAd', () => {
     expect(component.exists(select.title)).toEqual(true);
     expect(component.exists(select.promoDescription)).toEqual(true);
   });
+
+  it('should have props title', ()=>{
+    const expectedTitle = 'new title';
+    const component = shallow(<HappyHourAd title={expectedTitle}/>);
+
+    expect(component.find('.title').text()).toEqual(expectedTitle);
+  });
 });
 
