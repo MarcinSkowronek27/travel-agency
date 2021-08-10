@@ -470,6 +470,21 @@
       "tripName": "Wondrous travel in excellent United States of America",
       "countryCode": "USA",
       "id": 33
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "cvbc",
+      "contact": "gfdg",
+      "start-date": "",
+      "totalCost": "$29,319",
+      "tripId": "5cc1d10181a30e85c8d9ad4a",
+      "tripName": "Pleasant trek in outstanding Togo",
+      "countryCode": "TGO",
+      "id": 34
     }
   ]
 }

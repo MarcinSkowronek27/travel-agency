@@ -12,4 +12,8 @@ class HappyHourAd extends React.Component {
   }
 }
 
+// HappyHourAd.PropTypes ={
+
+// };
+
 export default HappyHourAd;

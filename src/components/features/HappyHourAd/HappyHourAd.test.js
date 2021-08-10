@@ -20,13 +20,10 @@ describe('Component HappyHourAd', () => {
     // const expectedTitle = 'title';
     // const renderedTitle = component.find(select.title).text();
     // expect(renderedTitle).toEqual(expectedTitle);
-    // to u góry jest prawidłowe?
-    // expect(component.hasClass('promoDescription')).toBe(true);
-    // czy classNames można szukać za pomocą tego operatora?
+    // to u góry jest prawidłowe? tak
 
     expect(component.exists(select.title)).toEqual(true);
     expect(component.exists(select.promoDescription)).toEqual(true);
-    // expect(component.find('div').hasClass('promoDescription')).toEqual(true); dlaczego to nie zadziała?
   });
 });
 
