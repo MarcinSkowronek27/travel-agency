@@ -102,3 +102,9 @@ describe('Component HappyHourAd with rendered promo description', () => {
   checkDescriptionAtTime('12:30:50', mockProps.promoDescription);
   checkDescriptionAtTime('12:59:59', mockProps.promoDescription);
 });
+
+describe('Component HappyHourAd before/after promo', () => {
+  checkDescriptionAfterTime('11:57:58', 2, '120');
+  checkDescriptionAfterTime('12:50:58', 1, mockProps.promoDescription);
+  checkDescriptionAfterTime('14:00:00', 60 * 60, 21 * 60 * 60 + ''); // jak te wartości godzinowe są przeliczane na wartości liczbowe?
+});
