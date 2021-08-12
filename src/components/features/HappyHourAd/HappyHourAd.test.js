@@ -28,7 +28,7 @@ describe('Component HappyHourAd', () => {
     // to u góry jest prawidłowe? tak
 
     expect(component.exists(select.title)).toEqual(true);
-    expect(component.exists(select.promoDescription)).toEqual(true);
+    expect(component.exists(select.descr)).toEqual(true);
   });
 
   it('should have props title', () => {
