@@ -56,7 +56,7 @@ const mockDate = customDate => class extends Date {
 
 const checkDescriptionAtTime = (time, expectedDescription) => {
   it(`should show correct at ${time}`, () => {
-    global.Date = mockDate(`2019-05-14T${time}.135Z`);
+    global.Date = mockDate(`2021-08-12T${time}.135Z`);
 
     const component = shallow(<HappyHourAd {...mockProps} />);
     const renderedTime = component.find(select.descr).text();
@@ -70,4 +70,29 @@ describe('Component HappyHourAd with mocked Date', () => {
   checkDescriptionAtTime('11:57:58', '122');
   checkDescriptionAtTime('11:59:59', '1');
   checkDescriptionAtTime('13:00:00', 23 * 60 * 60 + '');
+});
+
+const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
+  it(`should show correct value ${delaySeconds} seconds after ${time}`, () => {
+    global.Date = mockDate(`2021-08-12T${time}.135Z`);
+    jest.useFakeTimers();
+    const component = shallow(<HappyHourAd {...mockProps} />);
+    const newTime = new Date();
+    newTime.setSeconds(newTime.getSeconds() + delaySeconds);
+    global.Date = mockDate(newTime.getTime());
+
+    jest.advanceTimersByTime(delaySeconds * 1000);
+
+    const renderedTime = component.find(select.descr).text();
+    expect(renderedTime).toEqual(expectedDescription);
+
+    global.Date = trueDate;
+    jest.useRealTimers();
+  });
+};
+
+describe('Component HappyHourAd with mocked Date and delay', () => {
+  checkDescriptionAfterTime('11:57:58', 2, '120');
+  checkDescriptionAfterTime('11:59:58', 1, '1'); //dlaczego tutaj jest też o dwie sekundy?
+  checkDescriptionAfterTime('13:00:00', 60*60, 22 * 60 * 60 + '');
 });
