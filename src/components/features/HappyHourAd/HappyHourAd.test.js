@@ -54,15 +54,20 @@ const mockDate = customDate => class extends Date {
   }
 };
 
-describe('Component HappyHourAd with mocked Date', () => {
-  it('should show correct at 11:57:58', () => {
-    global.Date = mockDate('2019-05-14T11:57:58.135Z');
+const checkDescriptionAtTime = (time, expectedDescription) => {
+  it(`should show correct at ${time}`, () => {
+    global.Date = mockDate(`2019-05-14T${time}.135Z`);
 
     const component = shallow(<HappyHourAd {...mockProps} />);
     const renderedTime = component.find(select.descr).text();
-    expect(renderedTime).toEqual('122');
+    expect(renderedTime).toEqual(expectedDescription);
 
     global.Date = trueDate;
   });
-});
+};
 
+describe('Component HappyHourAd with mocked Date', () => {
+  checkDescriptionAtTime('11:57:58', '122');
+  checkDescriptionAtTime('11:59:59', '1');
+  checkDescriptionAtTime('13:00:00', 23 * 60 * 60 + '');
+});
