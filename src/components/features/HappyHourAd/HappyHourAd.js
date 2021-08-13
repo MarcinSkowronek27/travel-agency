@@ -18,6 +18,12 @@ class HappyHourAd extends React.Component {
     promoDescription: PropTypes.string,
   }
 
+  static defaultProps = {
+    title: 'Happy Hour',
+    promoDescription:
+      'Its your time! Take advantage of Happy Hour! All offers 20% off!',
+  };
+
   render() {
     const countdownTime = this.getCountdownTime();
 
