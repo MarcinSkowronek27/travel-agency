@@ -12,38 +12,6 @@ const mockProps = {
   promoDescription: 'decription',
 };
 
-beforeAll(() => {
-  const utilsModule = jest.requireActual('../../../utils/formatTime.js');
-  utilsModule.formatTime = jest.fn(seconds => seconds);
-});
-
-describe('Component HappyHourAd', () => {
-
-  it('should render without crashing', () => {
-    const component = shallow(<HappyHourAd />);
-    expect(component).toBeTruthy();
-    // console.log(component.debug());
-  });
-
-  it('should have h3 with class title and div with class countdown', () => {
-    const component = shallow(<HappyHourAd />);
-    // const expectedTitle = 'title';
-    // const renderedTitle = component.find(select.title).text();
-    // expect(renderedTitle).toEqual(expectedTitle);
-    // to u góry jest prawidłowe? tak
-
-    expect(component.exists(select.title)).toEqual(true);
-    expect(component.exists(select.descr)).toEqual(true);
-  });
-
-  it('should have props title', () => {
-    const component = shallow(<HappyHourAd {...mockProps} />);
-    const expectedTitle = mockProps.title;
-
-    expect(component.find(select.title).text()).toEqual(expectedTitle);
-  });
-});
-
 const trueDate = Date;
 const mockDate = customDate => class extends Date {
   constructor(...args) {
@@ -85,7 +53,7 @@ const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
     const newTime = new Date();
     newTime.setSeconds(newTime.getSeconds() + delaySeconds);
     global.Date = mockDate(newTime.getTime()); // w jakim celu bierzemy tu czas milisekund jakie minęły od 1970 roku? Rozumiem, że to jest konwertowane na godzinę z minutami i sekundami?
-    // chyba tutaj tylko przywracamy tę "prawidłową" wartość globalną czasu?
+
     jest.advanceTimersByTime(delaySeconds * 1000);
 
     const renderedTime = component.find(select.descr).text();
@@ -99,17 +67,5 @@ const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
 describe('Component HappyHourAd with mocked Date and delay', () => {
   checkDescriptionAfterTime('11:57:58', 2, '120');
   checkDescriptionAfterTime('11:59:58', 1, '1'); //dlaczego tutaj jest też o dwie sekundy?
-  checkDescriptionAfterTime('13:00:00', 60 * 60, 22 * 60 * 60 + '');
-});
-
-describe('Component HappyHourAd with rendered promo description', () => {
-  checkDescriptionAtTime('12:00:00', mockProps.promoDescription);
-  checkDescriptionAtTime('12:30:50', mockProps.promoDescription);
-  checkDescriptionAtTime('12:59:59', mockProps.promoDescription);
-});
-
-describe('Component HappyHourAd before/after promo', () => {
-  checkDescriptionAfterTime('11:57:58', 2, '120');
-  checkDescriptionAfterTime('12:50:58', 1, mockProps.promoDescription);
-  checkDescriptionAfterTime('14:00:00', 60 * 60, 21 * 60 * 60 + ''); // jak te wartości godzinowe są przeliczane na wartości liczbowe?
+  checkDescriptionAfterTime('13:00:00', 60*60, 22 * 60 * 60 + '');
 });
