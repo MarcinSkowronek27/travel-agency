@@ -1,16 +1,18 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import Hero from './Hero';
 
 describe('Component Hero', () => {
   it('should render without crashing', () => {
-    const component = shallow(<Hero titleText='Lorem ipsum' imageSrc='haba.jpg'/>);
+    const component = shallow(<Hero titleText='Lorem ipsum' imageSrc='haba.jpg' />);
     expect(component).toBeTruthy();
     console.log(component.debug());
   });
+
   it('should throw error without required props', () => {
     expect(() => shallow(<Hero />)).toThrow();
   });
+
   it('should render correct title and image', () => {
     const expectedTitle = 'Lorem ipsum';
     const expectedImage = 'image.jpg';
@@ -20,6 +22,7 @@ describe('Component Hero', () => {
     expect(renderedTitle).toEqual(expectedTitle);
     expect(component.find('.image').prop('src')).toEqual(expectedImage);
   });
+
   it('renders correct classNames', () => {
     const mockVariants = 'small dummy';
     const component = shallow(<Hero titleText='Lorem' imageSrc='image.jpg' variant={mockVariants} />);
@@ -27,4 +30,22 @@ describe('Component Hero', () => {
     expect(component.hasClass('small')).toBe(true);
     expect(component.hasClass('dummy')).toBe(true);
   });
+
+  it('should render HappyHourAd', () => {
+    const expectedTitle = 'Lorem ipsum';
+    const expectedImage = 'image.jpg';
+    const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectedImage} />);
+
+    expect(component.find('HappyHourAd').length).toEqual(1);
+  });
+
+  // it('should render correct promoDescription', () => {
+  //   const expectedTitle = 'Lorem ipsum';
+  //   const expectedImage = 'image.jpg';
+  //   // jak tu dodać apostrof do it's?
+  //   const expectedPromoDes = 'Its your time! Take advantage of Happy Hour! All offers 20% off!';
+  //   const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectedImage} />);
+
+  //   expect(component.find('HappyHourAd').prop('promoDescription')).toEqual(expectedPromoDes);
+  // });
 });
