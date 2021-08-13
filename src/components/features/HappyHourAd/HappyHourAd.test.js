@@ -79,7 +79,7 @@ const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
     const component = shallow(<HappyHourAd {...mockProps} />);
     const newTime = new Date();
     newTime.setSeconds(newTime.getSeconds() + delaySeconds);
-    global.Date = mockDate(newTime.getTime());
+    global.Date = mockDate(newTime.getTime()); // w jakim celu bierzemy tu czas milisekund jakie minęły od 1970 roku? Rozumiem, że to jest konwertowane na godzinę z minutami i sekundami?
 
     jest.advanceTimersByTime(delaySeconds * 1000);
 
