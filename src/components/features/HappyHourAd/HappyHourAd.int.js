@@ -8,8 +8,8 @@ const select = {
 };
 
 const mockProps = {
-  title: 'title',
-  promoDescription: 'decription',
+  title: 'Happy Hour',
+  promoDescription: 'Its your time! Take advantage of Happy Hour! All offers 20% off!',
 };
 
 const trueDate = Date;
