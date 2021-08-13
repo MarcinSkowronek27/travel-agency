@@ -1,4 +1,4 @@
-import { formatTime } from './formatTime';
+import { formatTime } from './formatTime.js';
 
 describe('utils', () => {
   describe('formatTime', () => {
