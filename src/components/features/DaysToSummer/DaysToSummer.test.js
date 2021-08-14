@@ -7,7 +7,7 @@ const select = {
 };
 
 const mockProps = {
-  title: 'days to summer!',
+  days: '340 days to summer!',
 };
 
 beforeAll(() => {
@@ -29,41 +29,41 @@ describe('Component DaysToSummer', () => {
   });
 
   it('should have props title', () => {
-    const component = shallow(<DaysToSummer />);
-    const expectedTitle = mockProps.title;
+    const component = shallow(<DaysToSummer {...mockProps}/>);
+    const expectedTitle = mockProps.days;
 
     expect(component.find(select.title).text()).toEqual(expectedTitle);
   });
 
-  const trueDay = Date;
+  // const trueDay = Date;
 
-  const mockDay = customDay => class extends Date {
-    constructor(...args) {
-      if (args.length) {
-        super(...args);
-      } else {
-        super(customDay);
-      }
-      return this;
-    }
-    static now() {
-      return (new Date(customDay)).getUTCDate();
-    }
-  };
+  // const mockDay = customDay => class extends Date {
+  //   constructor(...args) {
+  //     if (args.length) {
+  //       super(...args);
+  //     } else {
+  //       super(customDay);
+  //     }
+  //     return this;
+  //   }
+  //   static now() {
+  //     return (new Date(customDay)).getUTCDate();
+  //   }
+  // };
 
-  const checkDescriptionAtDay = (day, expectedDescription) => {
-    it(`should show correct at ${day}`, () => {
-      global.Date = mockDay(`2021-08-${day}`);
+  // const checkDescriptionAtDay = (day, expectedDescription) => {
+  //   it(`should show correct at ${day}`, () => {
+  //     global.Date = mockDay(`2021-08-${day}`);
 
-      const component = shallow(<DaysToSummer />);
-      const renderedDay = component.find('days').text();
-      expect(renderedDay).toEqual(expectedDescription);
+  //     const component = shallow(<DaysToSummer />);
+  //     const renderedDay = component.find('days');
+  //     expect(renderedDay).toEqual(expectedDescription);
 
-      global.Date = trueDay;
-    });
-  };
+  //     global.Date = trueDay;
+  //   });
+  // };
 
-  describe('Component DaysToSummer with mocked Day', () => {
-    checkDescriptionAtDay('2021-08-12', '2021-08-12');
-  });
+  // describe('Component DaysToSummer with mocked Day', () => {
+  //   checkDescriptionAtDay('2021-08-12', '2021-08-12');
+  // });
 });
