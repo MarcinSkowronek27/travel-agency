@@ -7,7 +7,7 @@ const select = {
 };
 
 const mockProps = {
-  title: '21 days to summer!',
+  title: 'days to summer!',
 };
 
 beforeAll(() => {
@@ -33,5 +33,37 @@ describe('Component DaysToSummer', () => {
     const expectedTitle = mockProps.title;
 
     expect(component.find(select.title).text()).toEqual(expectedTitle);
+  });
+
+  const trueDay = Date;
+
+  const mockDay = customDay => class extends Date {
+    constructor(...args) {
+      if (args.length) {
+        super(...args);
+      } else {
+        super(customDay);
+      }
+      return this;
+    }
+    static now() {
+      return (new Date(customDay)).getUTCDate();
+    }
+  };
+
+  const checkDescriptionAtDay = (day, expectedDescription) => {
+    it(`should show correct at ${day}`, () => {
+      global.Date = mockDay(`2021-08-${day}`);
+
+      const component = shallow(<DaysToSummer />);
+      const renderedDay = component.find('days').text();
+      expect(renderedDay).toEqual(expectedDescription);
+
+      global.Date = trueDay;
+    });
+  };
+
+  describe('Component DaysToSummer with mocked Day', () => {
+    checkDescriptionAtDay('2021-08-12', '2021-08-12');
   });
 });
