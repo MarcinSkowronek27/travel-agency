@@ -18,11 +18,11 @@ class DaysToSummer extends React.Component {
   // };
 
   render() {
-    const days = this.getCountdownDay();
+    const countdownDays = this.getCountdownDay();
     // console.log((new Date('2021-07-14')).getUTCMonth());
     return (
       <div className={styles.component}>
-        <h3 className={styles.summerDays}>{days}</h3>
+        <h3 className={styles.summerDays}>{countdownDays}</h3>
       </div>
     );
   }
@@ -33,7 +33,7 @@ class DaysToSummer extends React.Component {
     const msPerDay = 24 * 60 * 60 * 1000;
     const timeLeft = (summerDay.getTime() - currentDay.getTime());
     const e_daysLeft = timeLeft / msPerDay;
-    let daysLeft = Math.round(e_daysLeft);
+    let daysLeft = Math.floor(e_daysLeft);
     console.log(currentDay);
     if (daysLeft > 365) {
       daysLeft = daysLeft % 365;
