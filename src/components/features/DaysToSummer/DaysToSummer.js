@@ -13,9 +13,9 @@ class DaysToSummer extends React.Component {
     title: PropTypes.string,
   }
 
-  static defaultProps = {
-    title: '',
-  };
+  // static defaultProps = {
+  //   title: '',
+  // };
 
   render() {
     const days = this.getCountdownDay();
@@ -33,7 +33,7 @@ class DaysToSummer extends React.Component {
     const msPerDay = 24 * 60 * 60 * 1000;
     const timeLeft = (summerDay.getTime() - currentDay.getTime());
     const e_daysLeft = timeLeft / msPerDay;
-    let daysLeft = Math.floor(e_daysLeft);
+    let daysLeft = Math.round(e_daysLeft);
     console.log(currentDay);
     if (daysLeft > 365) {
       daysLeft = daysLeft % 365;
