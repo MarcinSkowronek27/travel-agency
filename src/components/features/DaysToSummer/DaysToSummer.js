@@ -45,12 +45,16 @@ class DaysToSummer extends React.Component {
       return '';
     } else if (timeLeft < 0 && timeGone > 0) {
       summerDay = new Date(`${year + 1}-06-21`);
-      const proba = (summerDay.getTime() - currentDay.getTime());
+      const proba = DateFunction((summerDay.getTime() - currentDay.getTime()));
       const e_proba = proba / msPerDay;
       const e_probaDone = Math.floor(e_proba);
       return (e_probaDone + ' days to summer!');
     } else if (daysLeft == 1) {
       return (daysLeft + ' day to summer!');
+    }
+    function DateFunction (arg) {
+      const msPerDay = 24 * 60 * 60 * 1000;
+      return Math.floor(arg/msPerDay);
     }
     // if (daysLeft > 365) {
     //   daysLeft = daysLeft % 365;
