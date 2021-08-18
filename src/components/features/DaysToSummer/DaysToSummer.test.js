@@ -55,7 +55,13 @@ const checkDescriptionAtDay = (day, expectedDescription) => {
   });
 };
 
-describe('Component DaysToSummer with mocked Date', ()=> {
-  checkDescriptionAtDay('2021-09-25', '269 days to summer!');
-  checkDescriptionAtDay('2022-06-20', '1 day to summer!');
+describe('Component DaysToSummer with mocked Date', () => {
+  // checkDescriptionAtDay('2021-09-25', '269 days to summer!');
+  // checkDescriptionAtDay('2022-06-20', '1 day to summer!');
+  checkDescriptionAtDay('2021-06-22', ''); // it's summer
+  checkDescriptionAtDay('2021-09-20', ''); // it's summer
+  checkDescriptionAtDay('2021-08-20', ''); // it's summer
+  checkDescriptionAtDay('2021-06-01', '20 days to summer!'); // before summer
+  checkDescriptionAtDay('2021-05-04', '48 days to summer!'); // before summer
+  checkDescriptionAtDay('2021-01-14', '158 days to summer!'); // before summer
 });

@@ -34,5 +34,5 @@ const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
   }
 };
 
-// TODONT dlaczego tutaj nie deklarujemy PropTypes? ODP. coś w rodzaju higher order component
+// TODON dlaczego tutaj nie deklarujemy PropTypes? ODP. coś w rodzaju higher order component
 export default OrderOption;
