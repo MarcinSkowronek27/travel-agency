@@ -82,10 +82,9 @@ const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
     global.Date = mockDate(`2021-08-12T${time}.135Z`);
     jest.useFakeTimers();
     const component = shallow(<HappyHourAd {...mockProps} />);
-    const newTime = new Date();
+    const newTime = new Date(); // zmokowana data z linijki 82.
     newTime.setSeconds(newTime.getSeconds() + delaySeconds);
-    global.Date = mockDate(newTime.getTime()); // w jakim celu bierzemy tu czas milisekund jakie minęły od 1970 roku? Rozumiem, że to jest konwertowane na godzinę z minutami i sekundami?
-    // chyba tutaj tylko przywracamy tę "prawidłową" wartość globalną czasu?
+    global.Date = mockDate(newTime.getTime());
     jest.advanceTimersByTime(delaySeconds * 1000);
 
     const renderedTime = component.find(select.descr).text();
@@ -97,8 +96,8 @@ const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
 };
 
 describe('Component HappyHourAd with mocked Date and delay', () => {
-  checkDescriptionAfterTime('11:57:58', 2, '120');
-  checkDescriptionAfterTime('11:59:58', 1, '1'); //dlaczego tutaj jest też o dwie sekundy?
+  checkDescriptionAfterTime('11:57:58', 2, '120'); //120, bo 2 razy 60 sekund.
+  checkDescriptionAfterTime('11:59:58', 1, '1');
   checkDescriptionAfterTime('13:00:00', 60 * 60, 22 * 60 * 60 + '');
 });
 
@@ -111,5 +110,5 @@ describe('Component HappyHourAd with rendered promo description', () => {
 describe('Component HappyHourAd before/after promo', () => {
   checkDescriptionAfterTime('11:57:58', 2, '120');
   checkDescriptionAfterTime('12:50:58', 1, mockProps.promoDescription);
-  checkDescriptionAfterTime('14:00:00', 60 * 60, 21 * 60 * 60 + ''); // jak te wartości godzinowe są przeliczane na wartości liczbowe?
+  checkDescriptionAfterTime('14:00:00', 60 * 60, 21 * 60 * 60 + ''); //drugie miejsce po przecinku to jest 60s razy 60, bo tyle jest sekund w godzinie, a trzeci przecinek to 21 razy wynik, który jest przelicznikiem godzin
 });

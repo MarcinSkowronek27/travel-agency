@@ -43,7 +43,8 @@ describe('Component Hero', () => {
   //   const expectedTitle = 'Lorem ipsum';
   //   const expectedImage = 'image.jpg';
   //   // jak tu dodać apostrof do it's?
-  //   const expectedPromoDes = 'Its your time! Take advantage of Happy Hour! All offers 20% off!';
+  // albo podwójne quotes a do its będzie pojedynczy lub użyć backslash -> it\'s  NAUKA
+  // const expectedPromoDes = "It's your time! Take advantage of Happy Hour! All offers 20% off!";
   //   const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectedImage} />);
 
   //   expect(component.find('HappyHourAd').prop('promoDescription')).toEqual(expectedPromoDes);

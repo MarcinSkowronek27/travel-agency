@@ -128,14 +128,12 @@ for (let type in optionTypes) {
           expect(emptyIcon).toBe(1);
 
           const icons = iconDiv.find('Icon').not('[name="times-circle"]');
-          expect(icons.length).toBe(mockProps.values.length); //dlaczego tutaj mamy tylko dwie ikony, przecież są 3? Czy to tylko symulacja dwóch?
+          expect(icons.length).toBe(mockProps.values.length); //dlaczego tutaj mamy tylko dwie ikony, przecież są 3? Czy to tylko symulacja dwóch? ODP. dlatego, że w linijce 130 mamy filtr dla nie name = time-circle
           expect(icons.at(0).prop('name')).toBe(mockProps.values[0].icon);
           expect(icons.at(1).prop('name')).toBe(mockProps.values[1].icon);
         });
 
         it('should run setOrderOption function on click on last div with Icon class', () => {
-          // renderedSubcomponent.find('div').find('.icon').at(2).simulate('click'); //dlaczego to też nie zadziała?  Method “simulate” is meant to be run on 1 node. 0 found instead.
-          // renderedSubcomponent.find('div').find('.icon').childAt(3).simulate('click'); //dlaczego znajduje tu dwa elementy? Method “childAt” is meant to be run on 1 node. 2 found instead.
           renderedSubcomponent.find('div').find('.icon').last().simulate('click'); //działa
           expect(mockSetOrderOption).toBeCalledTimes(1);
           expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
